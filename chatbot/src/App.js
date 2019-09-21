@@ -34,7 +34,7 @@ export default class App extends Component {
       newMessage.push({user: false, text: AIReactions[message.toLowerCase()]})
     } else if(re.test(message)) {
       newMessage.push({user: false, text: "You entered an Email. Will check the database for any parcels and get back to you ASAP."})
-      this.handleBackendRequest();
+      this.handleBackendRequest(message);
     } else {
       newMessage.push({user: false, text: "Pardon me, i did not understand you."})
     }
@@ -42,9 +42,13 @@ export default class App extends Component {
     this.setState({messages: [...this.state.messages, ...newMessage]})
   }
 
-  handleBackendRequest(){
+  handleBackendRequest(email){
     console.log("Backend Request")
-    axios.get("https://demo7609961.mockable.io/orders/")
+    axios.get("https://demo7609961.mockable.io/orders/?customer_email="+email,{
+      params: {
+        customer_email: email
+      }
+    })
     .then(result => {
       console.log(result)
       let fullname = result.data.customer.firstname + " " + result.data.customer.lastname
