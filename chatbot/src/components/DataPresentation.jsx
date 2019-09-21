@@ -19,8 +19,10 @@ export default class DataPresentation extends Component {
                 
                 {(orders.length > 0) 
                 ?   <div>
-                    <p>There are currently {orders.length} orders for you, {firstname} {lastname}.</p>
-                    {orders.map(order => <Order key={order.order_id} order={order}/>)}
+                        <p>There are currently {orders.length} orders for you, {firstname} {lastname}.</p>
+                        <div className="orders">
+                            {orders.map(order => <Order key={order.order_id} order={order}/>)}
+                        </div>
                     </div>
                 :   <div>There are currently no orders for you, {firstname} {lastname}.</div>
                 }

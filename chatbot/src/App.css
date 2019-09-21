@@ -6,6 +6,27 @@ input {
   min-width: 45vw;
 }
 
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.message-user {
+    margin-right: 10px;
+    color: rgb(121, 121, 207);
+}
+
+.message-bot {
+  color: green;
+}
+
+.tracking {
+  color: orange;
+}
+
 .left {
   width: 50%;
   border: 1px solid blue;
@@ -31,15 +52,14 @@ input {
   height: 10vh;
 }
 
-.allign-left {
-  text-align: left;
-  color: green;
+.orders {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-.allign-right {
-  text-align: right;
-  margin-right: 10px;
-  color: rgb(121, 121, 207);
+.order {
+  padding: 10px;
 }
 
 .App {
