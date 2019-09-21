@@ -26,11 +26,15 @@ export default class App extends Component {
   }
 
   handleNewMessage(message){
+      //RegEx for Email Validation
+    let re = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
       //prepare User-Message
     let newMessage = [{user: true, text: message}];
       //check AI for available reactions to message and add corresponding reaction to messages to be added
     if (AIReactions.hasOwnProperty(message.toLowerCase())) {
       newMessage.push({user: false, text: AIReactions[message.toLowerCase()]})
+    } else if(re.test(message)) {
+      newMessage.push({user: false, text: "Email"})
     } else {
       newMessage.push({user: false, text: "Leider habe ich dich nicht verstanden."})
     }

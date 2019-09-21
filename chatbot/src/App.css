@@ -19,6 +19,7 @@ input {
 .top {
   height: 70vh;
   border: 1px solid green;
+  font-size: 1.2rem;
 }
 
 .bottom {
