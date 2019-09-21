@@ -50,7 +50,15 @@ export default class App extends Component {
     axios.get("https://demo7609961.mockable.io/orders/")
     .then(result => {
       console.log(result)
-      this.setState({backendData: result})
+      let fullname = result.data.customer.firstname + " " + result.data.customer.lastname
+      let newMessage = {
+        user: false,
+        text: "Ok, " + fullname + ", i got your data. Have a look!" 
+      }
+      this.setState({
+        backendData: result,
+        messages: [...this.state.messages, newMessage]
+      })
     })
     .catch(err => {
       console.log(err)

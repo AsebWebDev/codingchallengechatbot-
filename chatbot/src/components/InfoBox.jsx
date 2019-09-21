@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import DataPresentation from './DataPresentation'
 
 export default class InfoBox extends Component {
     render() {
@@ -7,7 +8,7 @@ export default class InfoBox extends Component {
         ?  (
             <div>
                 <p>Infobox</p>
-                <p>Data here</p>
+                <DataPresentation data={backendData.data} />
             </div>
         )
         : (
