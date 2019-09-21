@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Card, Icon } from 'semantic-ui-react'
 import Order from './Order'
 
 export default class DataPresentation extends Component {
@@ -9,17 +10,20 @@ export default class DataPresentation extends Component {
         let orders = this.props.data.orders;
         return (
             <div>
-                <div>
-                    <p>DataPresentation Customer</p>
-                    <p>Firstname: {firstname}</p>
-                    <p>Lastname: {lastname}</p>
-                    <p>Email: {email}</p>
+                <div className="top-info">
+                    <Card color="red">
+                        <Card.Content>
+                            <Card.Header content={firstname + ' ' + lastname} />
+                            <Card.Meta content={email} />
+                            <Card.Description content={'There are currently ' + orders.length + ' orders for you.'} />
+                        </Card.Content>
+                    </Card>
                 </div>
+            
                 <br></br>
                 
                 {(orders.length > 0) 
                 ?   <div>
-                        <p>There are currently {orders.length} orders for you, {firstname} {lastname}.</p>
                         <div className="orders">
                             {orders.map(order => <Order key={order.order_id} order={order}/>)}
                         </div>

@@ -14,7 +14,7 @@ export default class Order extends Component {
                     </Card.Content>
                     <Card.Content description={this.props.order.items.map(item => <Item key={item.product_id} item={item}/>)} />
                     <Card.Content extra>
-                        <p className="align-left tracking"><Icon name='truck' />{"DHL-Tracking-ID: " + order.dhl_tracking_id}</p>
+                        <p className="tracking"><Icon name='truck' />{"DHL-Tracking-ID: " + order.dhl_tracking_id}</p>
                         <p className="tracking"><b>{order.status.toUpperCase()}</b></p>
                     </Card.Content>
                 </Card>

@@ -15,12 +15,27 @@ input {
 }
 
 .message-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
     margin-right: 10px;
     color: rgb(121, 121, 207);
 }
 
 .message-bot {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   color: green;
+}
+
+.message-bot b {
+  margin: 0 20px 0 20px;
+}
+
+.message-user b {
+  margin: 0 20px 0 20px;
 }
 
 .tracking {
@@ -29,18 +44,18 @@ input {
 
 .left {
   width: 50%;
-  border: 1px solid blue;
   height: 100%
 }
 
 .right {
+  padding: 30px;
   width: 50%;
   font-size: 1rem;
 }
 
 .top {
   height: 70vh;
-  border: 1px solid green;
+  padding: 30px 20px 0 20px;
   font-size: 1.2rem;
 }
 
@@ -60,6 +75,11 @@ input {
 
 .order {
   padding: 10px;
+}
+
+.top-info {
+  display: flex;
+  justify-content: center;
 }
 
 .App {

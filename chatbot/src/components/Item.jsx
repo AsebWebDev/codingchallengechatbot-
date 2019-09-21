@@ -1,17 +1,25 @@
 import React, { Component } from 'react'
-import { Card, Icon } from 'semantic-ui-react'
+import { Comment } from 'semantic-ui-react'
 
 export default class Item extends Component {
     render() {
         let item = this.props.item;
         return (
-
             <div>
-                
-                <p>Product-ID: {this.props.item.product_id}</p>
-                <p>Name: {this.props.item.name}</p>
-                <p>Quantity: {this.props.item.qty}</p>
-                <p>Price: {this.props.item.price}€</p>
+                <Comment.Group>
+                    <Comment>
+                        <Comment.Content>
+                            <Comment.Author as='a'>{item.qty} x {item.name}</Comment.Author>
+                            <Comment.Metadata>
+                            <div></div>
+                            </Comment.Metadata>
+                            <Comment.Text><b>{item.price}€</b></Comment.Text>
+                            <Comment.Actions>
+                            <Comment.Action>Product-ID: {item.product_id}</Comment.Action>
+                            </Comment.Actions>
+                        </Comment.Content>
+                    </Comment>
+                </Comment.Group>
             </div>
         )
     }
