@@ -14,6 +14,7 @@ input {
 
 .right {
   width: 50%;
+  font-size: 1rem;
 }
 
 .top {
@@ -22,17 +23,23 @@ input {
   font-size: 1.2rem;
 }
 
+.top b {
+  color: yellow;
+}
+
 .bottom {
   height: 10vh;
 }
 
 .allign-left {
   text-align: left;
+  color: green;
 }
 
 .allign-right {
   text-align: right;
   margin-right: 10px;
+  color: rgb(121, 121, 207);
 }
 
 .App {

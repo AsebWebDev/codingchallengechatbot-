@@ -13,15 +13,12 @@ export default class App extends Component {
     this.handleNewMessage = this.handleNewMessage.bind(this);
     this.state = {
         messages: [
-            {   user: true,
-                text: "First message" 
+            {   user: false,
+                text: "Welcome to out service chat! My name is Botty and i will assist you :)" 
             },
             {   user: false,
-                text: "Second message" 
-            },
-            {   user: true,
-                text: "Third message" 
-            },
+                text: "Please type your email adress to receive all informations about your order" 
+            }
         ],
         backendData: null
     };

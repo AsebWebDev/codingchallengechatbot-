@@ -10,7 +10,6 @@ export default class InputBox extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log("submitpressed")
         this.props.handleNewMessage(this.state.value)   
         this.setState({value:''}) 
     }
@@ -24,7 +23,7 @@ export default class InputBox extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <Input placeholder='Search...' value={this.state.value} onChange={e => this.handleChange(e)}  />
+                    <Input placeholder='Talk to the Bot...' value={this.state.value} onChange={e => this.handleChange(e)}  />
                 </form>
             </div>
         )
