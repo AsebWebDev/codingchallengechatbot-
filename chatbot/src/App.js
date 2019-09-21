@@ -25,16 +25,14 @@ export default class App extends Component {
   }
 
   handleNewMessage(message){
-    let newMessage = {user: true, text: message};
+    let newMessage = [{user: true, text: message}];
+    if (message.toLowerCase().match(/hello/)) newMessage.push({user: false, text: "Hey there! :)"})
     console.log("New Message!")
-    console.log(newMessage)
-    console.log(this.state.messages)
-    this.setState({messages: [...this.state.messages, newMessage]})
+    this.setState({messages: [...this.state.messages, ...newMessage]})
   }
 
   render() {
     let messages = this.state.messages;
-    console.log("Messages im State: " + messages )
     return (
       <div className="App">
         <header>

@@ -17,9 +17,6 @@ export default class InputBox extends Component {
 
     handleChange(e){
         e.preventDefault();
-        console.log(e.target.value)
-        console.log(e.target.keyCode)
-        
         this.setState({value: e.target.value})
     }
 
