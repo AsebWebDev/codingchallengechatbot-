@@ -25,6 +25,15 @@ input {
   height: 10vh;
 }
 
+.allign-left {
+  text-align: left;
+}
+
+.allign-right {
+  text-align: right;
+  margin-right: 10px;
+}
+
 .App {
   text-align: center;
 }
