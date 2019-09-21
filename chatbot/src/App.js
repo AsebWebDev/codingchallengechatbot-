@@ -4,6 +4,7 @@ import InfoBox from './components/InfoBox'
 import InputBox from './components/InputBox'
 import 'semantic-ui-css/semantic.min.css'
 import './App.css';
+import AIReactions from './data/AIReactions'
 
 export default class App extends Component {
   constructor(props) {
@@ -25,9 +26,15 @@ export default class App extends Component {
   }
 
   handleNewMessage(message){
+      //prepare User-Message
     let newMessage = [{user: true, text: message}];
-    if (message.toLowerCase().match(/hello/)) newMessage.push({user: false, text: "Hey there! :)"})
-    console.log("New Message!")
+      //check AI for available reactions to message and add corresponding reaction to messages to be added
+    if (AIReactions.hasOwnProperty(message.toLowerCase())) {
+      newMessage.push({user: false, text: AIReactions[message.toLowerCase()]})
+    } else {
+      newMessage.push({user: false, text: "Leider habe ich dich nicht verstanden."})
+    }
+      //add User-Message and possible Bot-Message to Messages
     this.setState({messages: [...this.state.messages, ...newMessage]})
   }
 
