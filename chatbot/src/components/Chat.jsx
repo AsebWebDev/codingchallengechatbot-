@@ -5,9 +5,11 @@ export default class Chat extends Component {
 
     render() {
         let messages = this.props.messages;
-        if (messages.length > 7) {
+        if (messages.length > 6) {
+            messages.shift()
             messages.shift()
         }
+
         return (
             <div>
                 <p>Hello World</p>
