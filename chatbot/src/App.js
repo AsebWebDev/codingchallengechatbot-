@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import Chat from './components/Chat'
 import InfoBox from './components/InfoBox'
 import InputBox from './components/InputBox'
@@ -21,7 +22,8 @@ export default class App extends Component {
             {   user: true,
                 text: "Third message" 
             },
-        ]
+        ],
+        backendData: null
     };
   }
 
@@ -34,12 +36,25 @@ export default class App extends Component {
     if (AIReactions.hasOwnProperty(message.toLowerCase())) {
       newMessage.push({user: false, text: AIReactions[message.toLowerCase()]})
     } else if(re.test(message)) {
-      newMessage.push({user: false, text: "Email"})
+      newMessage.push({user: false, text: "You entered an Email. Will check the database for any parcels and get back to you ASAP."})
+      this.handleBackendRequest();
     } else {
-      newMessage.push({user: false, text: "Leider habe ich dich nicht verstanden."})
+      newMessage.push({user: false, text: "Pardon me, i did not understand you."})
     }
       //add User-Message and possible Bot-Message to Messages
     this.setState({messages: [...this.state.messages, ...newMessage]})
+  }
+
+  handleBackendRequest(){
+    console.log("Backend Request")
+    axios.get("https://demo7609961.mockable.io/orders/")
+    .then(result => {
+      console.log(result)
+      this.setState({backendData: result})
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 
   render() {
@@ -59,7 +74,7 @@ export default class App extends Component {
             </div> 
           </div>
           <div className="right">
-            <InfoBox />
+            <InfoBox backendData={this.state.backendData}/>
           </div>  
         </div>
       </div>
