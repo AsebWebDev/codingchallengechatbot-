@@ -51,9 +51,13 @@ input {
 }
 
 .right {
+  height: 90vh;
   padding: 30px;
   width: 50%;
   font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .top {

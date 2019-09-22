@@ -10,8 +10,8 @@ export default class ShippingStatus extends Component {
         const deliveryStatus = (status.status === "DELIVERED_TO_NEIGHBOUR") ? "Delivered to Neighbour" : status.status;
         return (
             <div>
-                <p>{shipmentDate}</p>
-                <p>{lastUpdate}</p>
+                <p>Shipment Date: <b>{shipmentDate}</b></p>
+                <p>Last Update: <b>{lastUpdate}</b></p>
                 <p>{deliveryStatus}</p>
                 <p>{status.extraInfo}</p>
             </div>

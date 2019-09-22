@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import DataPresentation from './DataPresentation'
+import chatsupport from '../media/chatbot.png'
 
 export default class InfoBox extends Component {
     render() {
@@ -13,8 +14,7 @@ export default class InfoBox extends Component {
         )
         : (
             <div>
-                <h1>Infobox</h1>
-                <p>No Data here</p>
+                <img src={chatsupport} width="500" alt="chatsupport"/>
             </div>
         )
     }
