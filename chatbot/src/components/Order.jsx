@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, Icon } from 'semantic-ui-react'
+import { Card, Icon, Dimmer, Loader} from 'semantic-ui-react'
 import parser from 'xml2json-light';
 import axios from 'axios'
 import Item from './Item'
@@ -42,8 +42,10 @@ export default class Order extends Component {
                         {(this.state.shippingData)
                         ? <ShippingStatus status={this.state.shippingData.shipmentStatus}/>
                         : (order.status === "shipped")
-                            ? <p>Loading...</p>
-                            : <p>Not shipped yet</p>
+                            ?   <Dimmer active>
+                                    <Loader inverted>Loading</Loader>
+                                </Dimmer>
+                            :   <p>Not shipped yet</p>
                         }
                     </Card.Content>
                 </Card>
