@@ -46,12 +46,9 @@ export default class App extends Component {
     let newMessage = {user:false};
     console.log("Backend Request")
     axios.get("https://demo7609961.mockable.io/orders/?customer_email="+email,{
-      params: {
-        customer_email: email
-      }
+      params: { customer_email: email }
     })
     .then(result => {
-      console.log(result)
       let fullname = result.data.customer.firstname + " " + result.data.customer.lastname
       newMessage.text = "Ok, " + fullname + ", i got your data. Have a look!" 
       this.setState({
