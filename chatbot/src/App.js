@@ -14,7 +14,7 @@ export default class App extends Component {
     this.state = {
         messages: [
             {   user: false,
-                text: "Welcome to out service chat! My name is Botty and i will assist you :)" 
+                text: "My name is Botty and i will assist you :)" 
             },
             {   user: false,
                 text: "Please type your email adress to receive all informations about your order" 

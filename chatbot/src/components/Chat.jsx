@@ -12,7 +12,7 @@ export default class Chat extends Component {
 
         return (
             <div>
-                <p>Hello World</p>
+                <p>Welcome to our service chat!</p>
                 {messages.map((message,i) => 
                     <Message key={i} text={message.text} user={message.user} />
                 )}
