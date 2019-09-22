@@ -43,6 +43,7 @@ export default class App extends Component {
   }
 
   handleBackendRequest(email){
+    let newMessage = {user:false};
     console.log("Backend Request")
     axios.get("https://demo7609961.mockable.io/orders/?customer_email="+email,{
       params: {
@@ -52,16 +53,15 @@ export default class App extends Component {
     .then(result => {
       console.log(result)
       let fullname = result.data.customer.firstname + " " + result.data.customer.lastname
-      let newMessage = {
-        user: false,
-        text: "Ok, " + fullname + ", i got your data. Have a look!" 
-      }
+      newMessage.text = "Ok, " + fullname + ", i got your data. Have a look!" 
       this.setState({
         backendData: result,
         messages: [...this.state.messages, newMessage]
       })
     })
     .catch(err => {
+      newMessage.text = "Sorry, its us, not you. Is your Email correct? If so, please contact our support hotline (030/123456)."
+      this.setState({ messages: [...this.state.messages, newMessage] })
       console.log(err)
     })
   }
