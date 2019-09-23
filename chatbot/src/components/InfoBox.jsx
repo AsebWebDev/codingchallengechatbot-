@@ -8,7 +8,7 @@ export default class InfoBox extends Component {
         return (backendData) 
         ?  (
             <div>
-                <h1>Infobox</h1>
+                <h1>Your Orders</h1>
                 <DataPresentation data={backendData.data} />
             </div>
         )

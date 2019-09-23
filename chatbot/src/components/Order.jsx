@@ -16,7 +16,7 @@ export default class Order extends Component {
 
     componentDidMount(){
         if(this.props.order.status === "shipped") {
-            axios.post('https://demo7609961.mockable.io/dhl/status/', {
+            axios.post('https://demo7609961.mockable.io/dhl/status/?'+this.props.order.dhl_tracking_id, { 
             }).then(result => {
                 let json = parser.xml2json(result.data);
                 this.setState({shippingData: json})
